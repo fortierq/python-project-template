@@ -1,7 +1,8 @@
 {
     "name": "Python",
     "dockerFile": "Dockerfile",
-    "postCreateCommand": "f=requirements.txt; if [ -f $f ]; then pip3 install -r $f; fi",
+    "remoteUser": "vscode",
+    "postCreateCommand": "f=requirements.txt; if [ -f $f ]; then pip3 install -r $f; fi; workspaceFolder=$workspaceFolder/src",
     "settings": {
         "editor.formatOnSave": true,
         "python.formatting.provider": "yapf",
@@ -16,8 +17,20 @@
         "git.autofetch": true,
         "editor.minimap.enabled": false,
         "breadcrumbs.enabled": false,
+        "launch": {
+            "configurations": [
+                {
+                    "name": "Python: Module",
+                    "type": "python",
+                    "request": "launch",
+                    "module": "${command:extension.commandvariable.file.relativeFileDotsNoExtension}",
+                    "cwd": "${workspaceFolder}"
+                }
+            ],
+        }
     },
     "extensions": [
         "ms-python.python",
+        "rioj7.command-variable"
     ]
 }
