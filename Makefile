@@ -1,4 +1,4 @@
-.PHONY: tests
+.PHONY: test
 
-tests:
+test:
 	cd src; python3 -m pytest ../test
