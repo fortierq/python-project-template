@@ -1,5 +1,5 @@
-import a.a
+import a.ex1
 
 
 def test_f():
-    assert a.a.f() == 42
+    assert a.ex1.f() == 42
