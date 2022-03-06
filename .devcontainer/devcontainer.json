@@ -23,10 +23,21 @@
                     "name": "Python: Module",
                     "type": "python",
                     "request": "launch",
-                    "module": "${command:extension.commandvariable.file.relativeFileDotsNoExtension}",
-                    "cwd": "${workspaceFolder}"
+                    "module": "${input:relativeNoExtDotsBaseOff}",
+                    "cwd": "${workspaceFolder}/src"
                 }
             ],
+            "inputs": [
+                {
+                  "id": "relativeNoExtDotsBaseOff",
+                  "type": "command",
+                  "command": "extension.commandvariable.transform",
+                  "args": {
+                    "text": "${command:extension.commandvariable.file.relativeFileDotsNoExtension}",
+                    "find": "^[^.]+\\."
+                  }
+                }
+              ]
         }
     },
     "extensions": [
