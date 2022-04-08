@@ -1,3 +1,7 @@
 def f():
-    print("Hello from a.py")
+    print("Hello world from a.py")
     return 42
+
+
+a = 3
+f()
